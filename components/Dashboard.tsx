@@ -70,7 +70,8 @@ function ScoreBadge({ score }: { score: number }) {
   );
 }
 
-function PriceChange({ val }: { val: number }) {
+function PriceChange({ val }: { val?: number }) {
+  if (val == null) return <span className="text-zinc-400">—</span>;
   const color = val > 0 ? "text-green-400" : val < 0 ? "text-red-400" : "text-zinc-400";
   const sign = val > 0 ? "+" : "";
   return <span className={color}>{sign}{val.toFixed(2)}%</span>;
